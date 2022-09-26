@@ -1,0 +1,17 @@
+# Ontology metadata attributes required for registration in the TIB ontology hub.
+# This file should be maintained under the source control and must be released anongside the ontology, under the same versioning scheme.
+# The file name is identical to the ontology's ttl file with .txt extension.
+
+
+shortName: DIS
+title: Data Integration System Vocabularies
+description: A unified schema for representing the relation between the components of a data integration system.
+autorFullName: Sepide Azizi, Samaneh Jozashoori, Maria-Esther Vidal
+authorEmail: sepid.azizi.89@gmail.com, samaneh.jozashoori@tib.eu, maria.vidal@tib.eu
+maintainerFullname: Samaneh Jozashoori
+maintainerEmail: samaneh.jozashoori@tib.eu
+keywords:
+license: GNU General Public License v3.0
+version: v1.0
+repositoryURL: https://github.com/tibonto/dis # do not change this
+releaseURL: https://github.com/tibonto/dis/releases/tag/R1.0
