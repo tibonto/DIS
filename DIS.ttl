@@ -584,7 +584,7 @@ dis:DataType rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Data_Source
 dis:Data_Source rdf:type owl:Class ;
-		    owl:equivalentClass   dcat:Dataset .
+		    owl:equivalentClass dcat:Dataset .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Type_of_DataAttribute
@@ -617,7 +617,7 @@ dis:UserDefined rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Set_of_Data_Sources
 dis:Set_of_Data_Sources rdf:type owl:Class ;
-				owl:equivalentClass   dcat:DatasetSeries. 
+				owl:equivalentClass dcat:DatasetSeries . 
 
 
 
@@ -630,6 +630,14 @@ dis:Variable rdf:type owl:Class ;
              rdfs:subClassOf dis:Term ;
 		 owl:disjointWith dis:Function ,
 					dis:Constant .
+
+
+###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Constant
+dis:Constant rdf:type owl:Class ;
+             rdfs:subClassOf dis:Term ;
+		 owl:disjointWith dis:Function ,
+					dis:Variable .
+
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Argument_Position
 dis:Argument_Position rdf:type owl:Class .
@@ -666,7 +674,7 @@ dis:Data_Integration_System rdf:type owl:Class .
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Classes
 dis:Classes rdf:type owl:Class ;
             rdfs:subClassOf dis:Head ;
-		owl:equivalentClass owl:class ;
+		owl:equivalentClass owl:Class ;
             owl:disjointWith dis:Properties .
 
 
