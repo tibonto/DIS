@@ -728,7 +728,7 @@ dis:Attribute_MappingAssertion owl:equivalentClass [owl:Cardinality "1"^^xsd:non
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Axioms
 dis:Axioms rdf:type owl:Class ;
-	     owl:equivalentClass owl:Axiom .
+	   owl:equivalentClass owl:Axiom .
 
 
 
@@ -745,7 +745,7 @@ dis:Child owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Class
 dis:Class rdf:type owl:Class ;
-	    owl:equivalentClass owl:Class .
+	  owl:equivalentClass owl:Class .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Class_Head
@@ -768,28 +768,28 @@ dis:ConceptMapping_Relationships owl:equivalentClass [owl:Cardinality "1"^^xsd:n
 dis:Concept_MappingAssertion rdf:type owl:Class ;
                              rdfs:subClassOf dis:MappingAssertion ;
                              owl:disjointWith dis:Role_Mapping_Assertion ,
-						     dis:Attribute_Mapping_Assertion .
+					      dis:Attribute_Mapping_Assertion .
 dis:Concept_MappingAssertion owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-CM-Relationship-define-MappingAssertion].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Constant
 dis:Constant rdf:type owl:Class ;
              rdfs:subClassOf dis:TermType ;
-	      owl:equivalentClass rr:constant ;
+	     owl:equivalentClass rr:constant ;
              owl:disjointWith dis:Function ,
                               dis:Variable .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Constraints
 dis:Constraints rdf:type owl:Class ;
-		   rdfs:subClassOf   sh:ConstraintComponent .
+		rdfs:subClassOf   sh:ConstraintComponent .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DTP_Head
 dis:DTP_Head rdf:type owl:Class ;
              rdfs:subClassOf dis:Head ;
              owl:disjointWith dis:OP_Head ,
-				   dis:Class_Head .
+			      dis:Class_Head .
 dis:DTP_Head owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Head-relatedTo-DTP].
 
 
@@ -812,7 +812,7 @@ dis:DataIntegration_System owl:equivalentClass [owl:maxCardinality "1"^^xsd:nonN
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataSource
 dis:DataSource rdf:type owl:Class ;
-		 owl:equivalentClass  dcat:Dataset .
+	       owl:equivalentClass  dcat:Dataset .
 dis:DataSource owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Source-has-Format].
 dis:DataSource owl:equivalentClass [owl:minCardinality "0"^^xsd:nonNegativeInteger; owl:onProperty  dis:DataSource-recursive-Connected].
 dis:DataSource owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-DataField-isFrom-Source].
@@ -821,21 +821,21 @@ dis:DataSource owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteg
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataType_Property
 dis:DataType_Property rdf:type owl:Class ;
-	               owl:equivalentClass owl:DatatypeProperty .
+	              owl:equivalentClass owl:DatatypeProperty .
 dis:DataType_Property owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:DataTypeProperty-has-Range].
 dis:DataType_Property owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:DataTypeProperty-has-Domain].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Format
 dis:Format rdf:type owl:Class ;
-	    rdfs:subClassOf   dcat:distribution .
+	   rdfs:subClassOf   dcat:distribution .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Function
 dis:Function rdf:type owl:Class ;
              rdfs:subClassOf dis:TermType ;
              owl:disjointWith dis:Variable ,
-				   dis:Constant .
+			      dis:Constant .
 dis:Function owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-IsArgument-inFunction].
 
 
@@ -861,7 +861,7 @@ dis:Inter_SHACLShape owl:equivalentClass [owl:minCardinality "0"^^xsd:nonNegativ
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#IntraConstraints
 dis:IntraConstraints rdf:type owl:Class ;
                      rdfs:subClassOf dis:Constraints ;
-			   owl:disjointWith dis:InterConstraints .
+		     owl:disjointWith dis:InterConstraints .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Intra_SHACLShape
@@ -872,7 +872,7 @@ dis:Intra_SHACLShape owl:equivalentClass [owl:minCardinality "0"^^xsd:nonNegativ
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Join
 dis:Join rdf:type owl:Class ;
-	   owl:equivalentClass  rr:joinCondition .
+	 owl:equivalentClass  rr:joinCondition .
 dis:Join owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-JoinCondition-relatedTo].
 
 
@@ -907,27 +907,27 @@ dis:MultiSources_Relationships owl:equivalentClass [owl:Cardinality "1"^^xsd:non
 dis:Node_Shape rdf:type owl:Class ;
                rdfs:subClassOf dis:SHACL-Shape ;
                owl:disjointWith dis:Property_Shape ;
-		  owl:equivalentClass  sh:NodeShape .
+	       owl:equivalentClass  sh:NodeShape .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#OP_Head
 dis:OP_Head rdf:type owl:Class ;
             rdfs:subClassOf dis:Head ;
-		owl:disjointWith dis:DTP_Head ,
-				     dis:Class_Head .
+	    owl:disjointWith dis:DTP_Head ,
+			     dis:Class_Head .
 dis:OP_Head owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Head-relatedTo-OP].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Object_Property
 dis:Object_Property rdf:type owl:Class ;
-		 	  owl:equivalentClass owl:ObjectProperty .
+		    owl:equivalentClass owl:ObjectProperty .
 dis:Object_Property owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:ObjectProperty-has-Range].
 dis:Object_Property owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:ObjectProperty-has-Domain].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Ontology
 dis:Ontology rdf:type owl:Class ;
-		 owl:equivalentClass owl:Ontology .
+	     owl:equivalentClass owl:Ontology .
 dis:Ontology owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Ontology-ComposedOf-Properties].
 dis:Ontology owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Ontology-ComposedOf-Classes].
 dis:Ontology owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Ontology-ComposedOf-Axioms].
@@ -939,14 +939,14 @@ dis:Ontology_NameSpace rdf:type owl:Class .
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Parent
 dis:Parent rdf:type owl:Class ;
-	     owl:equivalentClass  rr:parent .
+	   owl:equivalentClass  rr:parent .
 dis:Parent owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Parent-relatedTo-DataField].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Property_Shape
 dis:Property_Shape rdf:type owl:Class ;
                    rdfs:subClassOf dis:SHACL-Shape ;
-			 owl:equivalentClass  sh:PropertyShape .
+		   owl:equivalentClass  sh:PropertyShape .
 			 
 
 
@@ -960,10 +960,8 @@ dis:ReferencedMapping_Relationships owl:equivalentClass [owl:Cardinality "1"^^xs
 dis:Referenced_MappingAssertion rdf:type owl:Class ;
                                 rdfs:subClassOf dis:Role_MappingAssertion ;
                                 owl:disjointWith dis:SingleRole_MappingAssertion ,
-							 dis:Multi_Sources_MappingAssertion .
+					         dis:Multi_Sources_MappingAssertion .
 dis:Referenced_MappingAssertion owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-RSR-Relationship-define-MappingAssertion].
-
-
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#RoleMapping_Relationships
@@ -976,14 +974,14 @@ dis:RoleMapping_Relationships owl:equivalentClass [owl:Cardinality "1"^^xsd:nonN
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Role_MappingAssertion
 dis:Role_MappingAssertion rdf:type owl:Class ;
                           rdfs:subClassOf dis:MappingAssertion ;
-				  owl:disjointWith dis:Concept_Mapping_Assertion ,
-						     dis:Attribute_Mapping_Assertion .
+			  owl:disjointWith dis:Concept_Mapping_Assertion ,
+					   dis:Attribute_Mapping_Assertion .
 dis:Role_MappingAssertion owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-RM-Relationship-define-MappingAssertion].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SHACL-Shape
 dis:SHACL-Shape rdf:type owl:Class ;
-		  owl:equivalentClass  sh:Shape .
+		owl:equivalentClass  sh:Shape .
 dis:SHACL-Shape owl:equivalentClass [owl:minCardinality "0"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-Shape-IntraRelated-Shape].
 dis:SHACL-Shape owl:equivalentClass [owl:minCardinality "0"^^xsd:nonNegativeInteger; owl:onProperty  dis:Inverse-Shape-InterRelated-Shape].
 
@@ -1017,14 +1015,14 @@ dis:SetOf_Properties owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativ
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SingleRole_MappingAssertion
 dis:SingleRole_MappingAssertion rdf:type owl:Class ;
                                 rdfs:subClassOf dis:Role_MappingAssertion ;
-					  owl:disjointWith dis:Referenced_MappingAssertion ,
-							     dis:Multi_Sources_MappingAssertion .
+			        owl:disjointWith dis:Referenced_MappingAssertion ,
+						 dis:Multi_Sources_MappingAssertion .
 dis:SingleRole_MappingAssertion owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:SingleRoleMapping-relatedTo-Source].
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SourceSchema
 dis:SourceSchema rdf:type owl:Class ;
-		     owl:equivalentClass dcat:DatasetSeries . 
+		 owl:equivalentClass dcat:DatasetSeries . 
 dis:SourceSchema owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:SetofSources-include].
 
 
@@ -1034,7 +1032,7 @@ dis:TermType rdf:type owl:Class .
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#TripleMapping
 dis:TripleMapping rdf:type owl:Class ;
-			owl:equivalentClass  rr:TriplesMap .
+		  owl:equivalentClass  rr:TriplesMap .
 dis:TripleMapping owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Mapping-IncludeOf-Assertion].
 
 
@@ -1046,8 +1044,8 @@ dis:Unified_Schema owl:equivalentClass [owl:minCardinality "1"^^xsd:nonNegativeI
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Variable
 dis:Variable rdf:type owl:Class ;
              rdfs:subClassOf dis:TermType ;
-		 owl:disjointWith dis:Function ,
-				    dis:Constant .
+	     owl:disjointWith dis:Function ,
+			      dis:Constant .
 dis:Variable owl:equivalentClass [owl:Cardinality "1"^^xsd:nonNegativeInteger; owl:onProperty  dis:Variable-relatedTo-DataField].
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
