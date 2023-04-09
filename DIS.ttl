@@ -20,7 +20,6 @@
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#AM-Relationship-define-MappingAssertion
 dis:AM-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                            owl:inverseOf dis:Inverse-AM-Relationship-define-MappingAssertion ;
                                             rdfs:domain dis:AttributeMapping_Relationships ;
                                             rdfs:range dis:Attribute_MappingAssertion .
 
@@ -63,7 +62,6 @@ dis:Body-relatedTo rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#CM-Relationship-define-MappingAssertion
 dis:CM-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                            owl:inverseOf dis:Inverse-CM-Relationship-define-MappingAssertion ;
                                             rdfs:domain dis:ConceptMapping_Relationships ;
                                             rdfs:range dis:Concept_MappingAssertion .
 
@@ -130,7 +128,6 @@ dis:DataField-has-Type rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataField-isFrom-Source
 dis:DataField-isFrom-Source rdf:type owl:ObjectProperty ;
-                            owl:inverseOf dis:Inverse-DataField-isFrom-Source ;
                             rdfs:domain dis:DataField_Relationships ;
                             rdfs:range dis:DataSource .
 
@@ -187,73 +184,6 @@ dis:Head-relatedTo-OP rdf:type owl:ObjectProperty ;
 dis:ICs-include rdf:type owl:ObjectProperty ;
                 rdfs:domain dis:Schema_ICs ;
                 rdfs:range dis:SHACL_Schema .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-AM-Relationship-define-MappingAssertion
-dis:Inverse-AM-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                                    rdfs:domain dis:Attribute_MappingAssertion ;
-                                                    rdfs:range dis:AttributeMapping_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-CM-Relationship-define-MappingAssertion
-dis:Inverse-CM-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                                    rdfs:domain dis:Concept_MappingAssertion ;
-                                                    rdfs:range dis:ConceptMapping_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-DataField-isFrom-Source
-dis:Inverse-DataField-isFrom-Source rdf:type owl:ObjectProperty ;
-                                    rdfs:domain dis:DataSource ;
-                                    rdfs:range dis:DataField_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-IsArgument-inFunction
-dis:Inverse-IsArgument-inFunction rdf:type owl:ObjectProperty ;
-                                  owl:inverseOf dis:IsArgument-inFunction ;
-                                  rdfs:domain dis:Function ;
-                                  rdfs:range dis:Argument_Position .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-JoinCondition-relatedTo
-dis:Inverse-JoinCondition-relatedTo rdf:type owl:ObjectProperty ;
-                                    owl:inverseOf dis:JoinCondition-relatedTo ;
-                                    rdfs:domain dis:Join ;
-                                    rdfs:range dis:Join_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-MSR-Relationship-define-MappingAssertion
-dis:Inverse-MSR-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                                     owl:inverseOf dis:MSR-Relationship-define-MappingAssertion ;
-                                                     rdfs:domain dis:MultiSources_MappingAssertion ;
-                                                     rdfs:range dis:MultiSources_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-RM-Relationship-define-MappingAssertion
-dis:Inverse-RM-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                                    owl:inverseOf dis:RM-Relationship-define-MappingAssertion ;
-                                                    rdfs:domain dis:Role_MappingAssertion ;
-                                                    rdfs:range dis:RoleMapping_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-RSR-Relationship-define-MappingAssertion
-dis:Inverse-RSR-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty ;
-                                                     owl:inverseOf dis:RSR-Relationship-define-MappingAssertion ;
-                                                     rdfs:domain dis:Referenced_MappingAssertion ;
-                                                     rdfs:range dis:ReferencedMapping_Relationships .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-Shape-InterRelated-Shape
-dis:Inverse-Shape-InterRelated-Shape rdf:type owl:ObjectProperty ;
-                                     owl:inverseOf dis:Shape-InterRelated-Shape ;
-                                     rdfs:domain dis:SHACL-Shape ;
-                                     rdfs:range dis:Inter_SHACLShape .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-Shape-IntraRelated-Shape
-dis:Inverse-Shape-IntraRelated-Shape rdf:type owl:ObjectProperty ;
-                                     owl:inverseOf dis:Shape-IntraRelated-Shape ;
-                                     rdfs:domain dis:SHACL-Shape ;
-                                     rdfs:range dis:Intra_SHACLShape .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#IsArgument-inFunction
