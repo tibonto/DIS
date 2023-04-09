@@ -1,17 +1,18 @@
-@prefix dis: <http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS> .
 
 <http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS> rdf:type owl:Ontology ;
-                                                                      rdfs:comment "This is an ontology for model data integration system."@en .
+                                                                       rdfs:comment "This is an ontology for model data integration system."@en .
 
 #################################################################
 #    Object Properties
@@ -51,13 +52,13 @@ dis:AttributeMapping-define-SecondArgument rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#AttributeMapping-define-Source
 dis:AttributeMapping-define-Source rdf:type owl:ObjectProperty ;
                                    rdfs:domain dis:AttributeMapping_Relationships ;
-                                   rdfs:range dis:Data_Source .
+                                   rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Body-relatedTo
 dis:Body-relatedTo rdf:type owl:ObjectProperty ;
                    rdfs:domain dis:Body ;
-                   rdfs:range dis:Data_Source .
+                   rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#CM-Relationship-define-MappingAssertion
@@ -94,7 +95,7 @@ dis:ConceptMapping-define-Function rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#ConceptMapping-define-Source
 dis:ConceptMapping-define-Source rdf:type owl:ObjectProperty ;
                                  rdfs:domain dis:ConceptMapping_Relationships ;
-                                 rdfs:range dis:Data_Source .
+                                 rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DIS-ComposedOf-IntegrityConstraints
@@ -112,7 +113,7 @@ dis:DIS-ComposedOf-SetofMappings rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DIS-ComposedOf-SetofSources
 dis:DIS-ComposedOf-SetofSources rdf:type owl:ObjectProperty ;
                                 rdfs:domain dis:DataIntegration_System ;
-                                rdfs:range dis:SetOf_DataSources .
+                                rdfs:range dis:SourceSchema .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DIS-ComposedOf-UnifiedSchema
@@ -131,7 +132,7 @@ dis:DataField-has-Type rdf:type owl:ObjectProperty ;
 dis:DataField-isFrom-Source rdf:type owl:ObjectProperty ;
                             owl:inverseOf dis:Inverse-DataField-isFrom-Source ;
                             rdfs:domain dis:DataField_Relationships ;
-                            rdfs:range dis:Data_Source .
+                            rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataSource-consistOf-DataField
@@ -142,8 +143,8 @@ dis:DataSource-consistOf-DataField rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataSource-recursive-Connected
 dis:DataSource-recursive-Connected rdf:type owl:ObjectProperty ;
-                                   rdfs:domain dis:Data_Source ;
-                                   rdfs:range dis:Data_Source .
+                                   rdfs:domain dis:DataSource ;
+                                   rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataTypeProperty-has-Domain
@@ -202,7 +203,7 @@ dis:Inverse-CM-Relationship-define-MappingAssertion rdf:type owl:ObjectProperty 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Inverse-DataField-isFrom-Source
 dis:Inverse-DataField-isFrom-Source rdf:type owl:ObjectProperty ;
-                                    rdfs:domain dis:Data_Source ;
+                                    rdfs:domain dis:DataSource ;
                                     rdfs:range dis:DataField_Relationships .
 
 
@@ -312,7 +313,7 @@ dis:Multi-relatedTo-Concept rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Multi-relatedTo-DataSource
 dis:Multi-relatedTo-DataSource rdf:type owl:ObjectProperty ;
                                rdfs:domain dis:MultiSources_Relationships ;
-                               rdfs:range dis:Data_Source .
+                               rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Multi-relatedTo-Join
@@ -396,7 +397,7 @@ dis:ReferencedMapping-relatedTo-Concept rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#ReferencedMapping-relatedTo-Source
 dis:ReferencedMapping-relatedTo-Source rdf:type owl:ObjectProperty ;
                                        rdfs:domain dis:ReferencedMapping_Relationships ;
-                                       rdfs:range dis:Data_Source .
+                                       rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#RoleMapping-define-ObjectProperty
@@ -431,8 +432,8 @@ dis:SetofMappings-include rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SetofSources-include
 dis:SetofSources-include rdf:type owl:ObjectProperty ;
-                         rdfs:domain dis:SetOf_DataSources ;
-                         rdfs:range dis:Data_Source .
+                         rdfs:domain dis:SourceSchema ;
+                         rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Shape-InterRelated-InterConstraint
@@ -492,12 +493,12 @@ dis:Shape-RecursiveRelated-Shape rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SingleRoleMapping-relatedTo-Source
 dis:SingleRoleMapping-relatedTo-Source rdf:type owl:ObjectProperty ;
                                        rdfs:domain dis:SingleRole_MappingAssertion ;
-                                       rdfs:range dis:Data_Source .
+                                       rdfs:range dis:DataSource .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Source-has-Format
 dis:Source-has-Format rdf:type owl:ObjectProperty ;
-                      rdfs:domain dis:Data_Source ;
+                      rdfs:domain dis:DataSource ;
                       rdfs:range dis:Format .
 
 
@@ -543,13 +544,13 @@ dis:DIS-id rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DS-Description
 dis:DS-Description rdf:type owl:DatatypeProperty ;
-                   rdfs:domain dis:Data_Source ;
+                   rdfs:domain dis:DataSource ;
                    rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DS-id
 dis:DS-id rdf:type owl:DatatypeProperty ;
-          rdfs:domain dis:Data_Source ;
+          rdfs:domain dis:DataSource ;
           rdfs:range xsd:string .
 
 
@@ -561,7 +562,7 @@ dis:DataField-Description rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Ds-Name
 dis:Ds-Name rdf:type owl:DatatypeProperty ;
-            rdfs:domain dis:Data_Source ;
+            rdfs:domain dis:DataSource ;
             rdfs:range xsd:string .
 
 
@@ -657,13 +658,13 @@ dis:SHACL-Shape-id rdf:type owl:DatatypeProperty ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Set-DS-Name
 dis:Set-DS-Name rdf:type owl:DatatypeProperty ;
-                rdfs:domain dis:SetOf_DataSources ;
+                rdfs:domain dis:SourceSchema ;
                 rdfs:range xsd:string .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Set-DS-id
 dis:Set-DS-id rdf:type owl:DatatypeProperty ;
-              rdfs:domain dis:SetOf_DataSources ;
+              rdfs:domain dis:SourceSchema ;
               rdfs:range xsd:string .
 
 
@@ -725,6 +726,7 @@ dis:Axioms rdf:type owl:Class ;
 	   owl:equivalentClass owl:Axiom .
 
 
+
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Body
 dis:Body rdf:type owl:Class .
 
@@ -736,7 +738,7 @@ dis:Child rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Class
 dis:Class rdf:type owl:Class ;
-	  owl:equivalentClass  owl:Class .
+	  owl:equivalentClass owl:Class .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Class_Head
@@ -753,20 +755,21 @@ dis:ConceptMapping_Relationships rdf:type owl:Class .
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Concept_MappingAssertion
 dis:Concept_MappingAssertion rdf:type owl:Class ;
                              rdfs:subClassOf dis:MappingAssertion ;
-                             owl:disjointWith dis:Role_MappingAssertion ,
-				              dis:Attribute_MappingAssertion .
+                             owl:disjointWith dis:Role_Mapping_Assertion ,
+					      dis:Attribute_Mapping_Assertion .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Constant
 dis:Constant rdf:type owl:Class ;
              rdfs:subClassOf dis:TermType ;
+	     owl:equivalentClass rr:constant ;
              owl:disjointWith dis:Function ,
                               dis:Variable .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Constraints
 dis:Constraints rdf:type owl:Class ;
-		    rdfs:subClassOf   sh:ConstraintComponent .
+		rdfs:subClassOf   sh:ConstraintComponent .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DTP_Head
@@ -788,14 +791,14 @@ dis:DataField_Relationships rdf:type owl:Class .
 dis:DataIntegration_System rdf:type owl:Class .
 
 
+###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataSource
+dis:DataSource rdf:type owl:Class ;
+	       owl:equivalentClass  dcat:Dataset .
+
+
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#DataType_Property
 dis:DataType_Property rdf:type owl:Class ;
-		      owl:equivalentClass owl:DatatypeProperty .
-
-
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Data_Source
-dis:Data_Source rdf:type owl:Class ;
-	        owl:equivalentClass  dcat:Dataset .
+	              owl:equivalentClass owl:DatatypeProperty .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Format
@@ -807,8 +810,7 @@ dis:Format rdf:type owl:Class ;
 dis:Function rdf:type owl:Class ;
              rdfs:subClassOf dis:TermType ;
              owl:disjointWith dis:Variable ,
-			      dis:Constant ;
-	     owl:equivalentClass  fnml:functionMap .
+			      dis:Constant .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Head
@@ -837,7 +839,7 @@ dis:Intra_SHACLShape rdf:type owl:Class .
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Join
 dis:Join rdf:type owl:Class ;
-	   owl:equivalentClass  rr:joinCondition .
+	 owl:equivalentClass  rr:joinCondition .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Join_Relationships
@@ -869,8 +871,8 @@ dis:Node_Shape rdf:type owl:Class ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#OP_Head
 dis:OP_Head rdf:type owl:Class ;
             rdfs:subClassOf dis:Head ;
-		owl:disjointWith dis:DTP_Head ,
-				 dis:Class_Head .
+	    owl:disjointWith dis:DTP_Head ,
+			     dis:Class_Head .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Object_Property
@@ -880,7 +882,7 @@ dis:Object_Property rdf:type owl:Class ;
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Ontology
 dis:Ontology rdf:type owl:Class ;
-	     owl:equivalentClass owl:Ontology .	
+	     owl:equivalentClass owl:Ontology .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Ontology_NameSpace
@@ -895,8 +897,8 @@ dis:Parent rdf:type owl:Class ;
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Property_Shape
 dis:Property_Shape rdf:type owl:Class ;
                    rdfs:subClassOf dis:SHACL-Shape ;
-		   owl:disjointWith dis:Node_Shape ;
 		   owl:equivalentClass  sh:PropertyShape .
+			 
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#ReferencedMapping_Relationships
@@ -907,7 +909,7 @@ dis:ReferencedMapping_Relationships rdf:type owl:Class .
 dis:Referenced_MappingAssertion rdf:type owl:Class ;
                                 rdfs:subClassOf dis:Role_MappingAssertion ;
                                 owl:disjointWith dis:SingleRole_MappingAssertion ,
-						 dis:MultiSources_MappingAssertion .
+						 dis:Multi_Sources_MappingAssertion .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#RoleMapping_Relationships
@@ -917,8 +919,8 @@ dis:RoleMapping_Relationships rdf:type owl:Class .
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#Role_MappingAssertion
 dis:Role_MappingAssertion rdf:type owl:Class ;
                           rdfs:subClassOf dis:MappingAssertion ;
-			  owl:disjointWith dis:Concept_MappingAssertion ,
-					   dis:Attribute_MappingAssertion .
+		          owl:disjointWith dis:Concept_Mapping_Assertion ,
+					   dis:Attribute_Mapping_Assertion .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SHACL-Shape
@@ -938,11 +940,6 @@ dis:Schema_ICs rdf:type owl:Class .
 dis:SetOf_Classes rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SetOf_DataSources
-dis:SetOf_DataSources rdf:type owl:Class ;
-		      owl:equivalentClass dcat:DatasetSeries . 
-
-
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SetOf_Mappings
 dis:SetOf_Mappings rdf:type owl:Class .
 
@@ -954,8 +951,13 @@ dis:SetOf_Properties rdf:type owl:Class .
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SingleRole_MappingAssertion
 dis:SingleRole_MappingAssertion rdf:type owl:Class ;
                                 rdfs:subClassOf dis:Role_MappingAssertion ;
-			        owl:disjointWith dis:Referenced_MappingAssertion ,
-                			         dis:MultiSources_MappingAssertion .
+					  	owl:disjointWith dis:Referenced_MappingAssertion ,
+								 dis:Multi_Sources_MappingAssertion .
+
+
+###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#SourceSchema
+dis:SourceSchema rdf:type owl:Class ;
+		 owl:equivalentClass dcat:DatasetSeries . 
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#TermType
@@ -964,7 +966,7 @@ dis:TermType rdf:type owl:Class .
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#TripleMapping
 dis:TripleMapping rdf:type owl:Class ;
-	          owl:equivalentClass  rr:TriplesMap .
+		  owl:equivalentClass  rr:TriplesMap .
 
 
 ###  http://www.semanticweb.org/amsep/ontologies/2022/8/Ontology-for-DIS#UnifiedSchema
