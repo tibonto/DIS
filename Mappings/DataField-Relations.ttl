@@ -1,0 +1,60 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>. 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix sh:	 <http://www.w3.org/ns/shacl#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<DataField-Relations>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-datasource.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_has_{dataField}";
+	rr:class dis:DataField_Relationships
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DataSource-consistOf-DataField;
+	rr:objectMap [ 
+		rr:parentTriplesMap <DataField>; 
+	] ;
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DataField-isFrom-Source;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}";
+	] ;
+];
+rr:predicateObjectMap [ 
+	rr:predicate dis:DataField-has-Type;
+	rr:objectMap [ 
+		 rml:reference "dataType" ;
+		 rr:termType rr:IRI ;
+	];
+].
+
+
+<DataField>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-datasource.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_{dataField}";
+	rr:class dis:DataField
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DataField-Description;
+	rr:objectMap [ 
+		 rml:reference "dataField-description" ;
+	] ;
+].
+

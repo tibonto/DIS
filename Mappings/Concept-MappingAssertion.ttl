@@ -1,0 +1,146 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>. 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix sh:	 <http://www.w3.org/ns/shacl#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<Concept-MappingAssertion-Relationships> 
+	a  rr:TriplesMap;
+	
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/concept-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_includeOf_{mapping-assertion-id}";
+	rr:class dis:ConceptMapping-Relationships
+];
+rr:predicateObjectMap [
+	rr:predicate dis:CM-Relationship-define-MappingAssertion;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Concept-MappingAssertion> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:ConceptMapping-define-Class;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Head-Class> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:ConceptMapping-define-Function;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Function> ;
+	];
+];	
+rr:predicateObjectMap [
+	rr:predicate dis:ConceptMapping-define-Source;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Body> ;
+	];
+].
+
+
+
+<Concept-MappingAssertion>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/concept-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_{mapping-assertion-id}";
+	rr:class dis:ConceptMapping_Assertion
+].
+
+
+
+<Head-Class>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/concept-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{class}_AsHead";
+	rr:class dis:Class_Head
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Head-relatedTo-Class;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Class> ;
+	];
+].
+
+
+
+<Class>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/concept-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{class}" ;
+	rr:class dis:Class
+].
+
+
+
+<Function>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/concept-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{function-id}";
+	rr:class dis:Function
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Function-Name;
+	rr:objectMap [ 
+		rml:reference "function-name" ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Function-Template;
+	rr:objectMap [ 
+		rml:reference "function-template";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Function-id;
+	rr:objectMap [ 
+		rml:reference "function-id";
+	];
+].
+
+
+
+
+<Body>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/concept-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_AsBody";
+	rr:class dis:Body
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Body-relatedTo;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}" ;
+	];
+].
