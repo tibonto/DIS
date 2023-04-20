@@ -1,0 +1,179 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>. 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix sh:	 <http://www.w3.org/ns/shacl#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<MultiSources-RoleMapping-Relationships>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_includeOf_{mapping-assertion-id}";
+	rr:class dis:MultiSources_Relationships
+];
+rr:predicateObjectMap [
+	rr:predicate dis:MSR-Relationship-define-MappingAssertion;
+	rr:objectMap [ 
+		rr:parentTriplesMap <MultiSources-MappingAssertion> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Multi-relatedTo-Concept;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Concept-MappingAssertion> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Multi-relatedTo-Join;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Join> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Multi-relatedTo-DataSource;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Body> ;
+	];
+].
+
+
+
+<Concept-MappingAssertion>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{referenced-tripleMapping-id}_{referenced-mapping-assertion-id}";
+	rr:class dis:ConceptMapping_Assertion
+].
+
+
+
+
+<MultiSources-MappingAssertion>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_{mapping-assertion-id}";
+	rr:class dis:MultiSources_MappingAssertion
+].
+
+
+<JoinRelationships>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_isJoined_{referenced-dataSource-id}";
+	rr:class dis:Join_Relationships
+];
+rr:predicateObjectMap [
+	rr:predicate dis:JoinCondition-relatedTo;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Join> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Join-ComposedOf-Child;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Child> ;
+	];
+];	
+rr:predicateObjectMap [
+	rr:predicate dis:Join-ComposedOf-Parent;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Parent> ;
+	];
+].
+
+
+
+<Join>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_isJoined_{referenced-tripleMapping-id}";
+	rr:class dis:Join
+].
+
+
+
+<Child>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{child}_{dataSource-id}_AsChild";
+	rr:class dis:Child
+	
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Child-relatedTo-DataField;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_{child}" ;
+	];
+].
+
+
+
+<Parent>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{parent}_{referenced-dataSource-id}_AsParent";
+	rr:class dis:Parent
+	
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Parent-relatedTo-DataField;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{referenced-dataSource-id}_{parent}" ;
+	];
+].
+
+
+
+<Body>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/multiSources-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_AsBody";
+	rr:class dis:Body
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Body-relatedTo;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}" ;
+	];
+].	

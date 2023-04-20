@@ -1,0 +1,208 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>. 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix sh:	 <http://www.w3.org/ns/shacl#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<Unified-Schema>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-ontology.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{unified-schema-id}";
+	rr:class dis:UnifiedSchema
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Unified-include;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Ontology>;
+	];
+].
+
+
+
+<Ontology>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-ontology.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{ontology-id}";
+	rr:class dis:Ontology
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Ontology-id;
+	rr:objectMap [ 
+		rml:reference "ontology-id";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Ontology-Name;
+	rr:objectMap [ 
+		rml:reference "ontology-name";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Ontology-has-NameSpace;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Ontology-NameSpace>;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Ontology-ComposedOf-Classes;
+	rr:objectMap [ 
+		rr:parentTriplesMap <OntologyClasses>;
+		rr:joinCondition [
+			rr:child "set-of-classes";
+			rr:parent "set-of-classes";
+		];
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Ontology-ComposedOf-Properties;
+	rr:objectMap [ 
+		rr:parentTriplesMap <OntologyProperties>;
+		rr:joinCondition [
+			rr:child "set-of-properties";
+			rr:parent "set-of-properties";
+		];
+	];
+].
+
+
+<Ontology-NameSpace>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-ontology.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{ontology-prefix}_:_{ontology-URI}";
+	rr:class dis:Ontology_NameSpace
+].
+
+
+<OntologyClasses>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-class.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{set-of-classes}";
+	rr:class dis:SetOf_Classes
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Classes-IncludeOf;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Classes> ;
+	];
+].
+
+
+<Classes>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-class.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{class}";
+	rr:class dis:Class
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Class-Description;
+	rr:objectMap [ 
+		rml:reference "class-description" ;
+	];
+].
+
+
+<OntologyProperties>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-property.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{set-of-properties}";
+	rr:class dis:SetOf_Properties
+		
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Properties-includeOf-OP;
+	rr:objectMap [ 
+		rr:parentTriplesMap <ObjectProperty> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Properties-includeOf-DTP;
+	rr:objectMap [ 
+		rr:parentTriplesMap <DataTypeProperty> ;
+	];
+].
+
+
+
+<ObjectProperty>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-property.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{object-property}";
+	rr:class dis:Object_Property
+		
+];
+rr:predicateObjectMap [
+	rr:predicate dis:ObjectProperty-has-Domain;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{OP-domain}" ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:ObjectProperty-has-Range;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{OP-range}" ;
+	];
+].
+
+
+
+
+<DataTypeProperty>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/clarify-property.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataType-property}";
+	rr:class dis:DataType_Property
+		
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DataTypeProperty-has-Domain;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{DTP-domain}" ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DataTypeProperty-has-Range;
+	rr:objectMap [ 
+		rml:reference "DTP-range" ;
+		rr:termType rr:IRI ;
+	];
+].
+
+
