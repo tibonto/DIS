@@ -1,0 +1,251 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>. 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix sh:	 <http://www.w3.org/ns/shacl#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<Attribute-Mapping-Assertion-Relationships>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_includeOf_{mapping-assertion-id}";
+	rr:class dis:AttributeMapping-Relationships
+];
+rr:predicateObjectMap [
+	rr:predicate dis:AM-Relationship-define-MappingAssertion;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Attribute-MappingAssertion>;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:AttributeMapping-define-DataTypeProperty;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Head-DTP> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:AttributeMapping-define-FirstArgument;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Function> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:AttributeMapping-define-SecondArgument;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Argument> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:AttributeMapping-define-Source;
+	rr:objectMap [ 
+		rr:parentTriplesMap <Body> ;
+	];
+].
+
+
+
+<Attribute-MappingAssertion>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{tripleMapping-id}_{mapping-assertion-id}";
+	rr:class dis:AttributeMapping_Assertion
+].
+
+
+
+
+<Head-DTP>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataTypeProperty}_AsHead" ;
+	rr:class dis:DTP_Head
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Head-relatedTo-DTP;
+	rr:objectMap [ 
+		rr:parentTriplesMap <DataType-Property> ;
+	];
+].
+
+
+
+<DataType-Property>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataTypeProperty}" ;
+	rr:class dis:DataType_Property
+].
+
+
+<Function>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{function-id}";
+	rr:class dis:Function
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Function-Name;
+	rr:objectMap [ 
+		rml:reference "function-name" ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Function-Template;
+	rr:objectMap [ 
+		rml:reference "function-template";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Function-id;
+	rr:objectMap [ 
+		rml:reference "function-id";
+	];
+].
+
+
+
+<Argument>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{second-argument}";
+	rr:class dis:Argument	
+];
+rr:predicateObjectMap [
+ 	rr:predicate dis:Argument-has-Type ;
+	rr:objectMap[
+		rr:parentTriplesMap <TermVariable>; 
+	];
+];
+rr:predicateObjectMap [
+ 	rr:predicate dis:Argument-has-Type ;
+	rr:objectMap[
+		rr:parentTriplesMap <TermFunction>;  
+	];
+];
+rr:predicateObjectMap [
+ 	rr:predicate dis:Argument-has-Type ;
+	rr:objectMap[
+		rr:parentTriplesMap <TermConstant>; 
+	];
+].
+
+
+
+<TermVariable>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{variable}_Var";
+	rr:class dis:Variable	
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Variable-relatedTo-DataField;
+	rr:objectMap [ 
+		rr:parentTriplesMap <DataField> 
+	];
+].
+
+
+
+<DataField>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_{variable}";
+	rr:class dis:DataField 
+].
+
+
+
+<TermConstant>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{constant}_Constant";
+	rr:class dis:Constant	
+].
+
+
+
+<TermFunction>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{function}";
+	rr:class dis:Function	
+].
+
+
+
+<Body>
+	a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}_AsBody";
+	rr:class dis:Body
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Body-relatedTo;
+	rr:objectMap [ 
+		rr:template "http://Ontology-for-DIS.eu/entity/{dataSource-id}" ;
+	];
+].
+
+
+<TermType>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/attribute-mapping.csv";
+					rml:referenceFormulation ql:CSV
+];
+
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{term-type}";
+	rr:class dis:Term_Type
+	
+].
