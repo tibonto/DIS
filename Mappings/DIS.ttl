@@ -1,0 +1,137 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>. 
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#>. 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dis: <http://Ontology-for-DIS.eu/vocab/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix sh:	 <http://www.w3.org/ns/shacl#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<Data-Integration-System>
+  a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/DataIntegrationSystem.csv";
+						rml:referenceFormulation ql:CSV 
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{DIS-id}" ;
+	rr:class dis:DataIntegration_System
+	
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DIS-Description;
+	rr:objectMap [ 
+		rml:reference "description";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DIS-Name;
+	rr:objectMap [ 
+		rml:reference "DIS-name";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DIS-id;
+	rr:objectMap [ 
+		rml:reference "DIS-id";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DIS-ComposedOf-UnifiedSchema;
+	rr:objectMap [ 
+		rr:parentTriplesMap <UnifiedSchema>;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DIS-ComposedOf-SetofSources;
+	rr:objectMap [ 
+		rr:parentTriplesMap <SetOf-DataSources> ;
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:DIS-ComposedOf-SetofMappings;
+	rr:objectMap [ 
+		rr:parentTriplesMap <SetOf-Mappings> ;
+	];
+].
+
+
+
+<UnifiedSchema>
+  a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/DataIntegrationSystem.csv";
+						rml:referenceFormulation ql:CSV 
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{unified-schema-id}" ;
+	rr:class dis:UnifiedSchema
+];
+rr:predicateObjectMap [
+	rr:predicate dis:UnifiedSchema-Name;
+	rr:objectMap [ 
+		rml:reference "unified-schema";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:UnifiedSchema-id;
+	rr:objectMap [ 
+		rml:reference "unified-schema-id";
+	];
+].
+
+
+
+<SetOf-Mappings>
+  a rr:TriplesMap;
+
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/DataIntegrationSystem.csv";
+						rml:referenceFormulation ql:CSV 
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{set-of-mappings-id}" ;
+	rr:class dis:SetOf_Mappings
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Set-Mapping-Name;
+	rr:objectMap [ 
+		rml:reference "set-of-mappings";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Set-Mapping-id;
+	rr:objectMap [ 
+		rml:reference "set-of-mappings-id";
+	];
+].
+
+
+
+<SetOf-DataSources>
+	a rr:TriplesMap;
+
+rml:logicalSource [ rml:source "E:/DIS/DataSources/DataIntegrationSystem.csv";
+						rml:referenceFormulation ql:CSV  
+];
+rr:subjectMap [
+	rr:template "http://Ontology-for-DIS.eu/entity/{set-of-dataSources-id}";
+	rr:class dis:SourceSchema
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Set-DS-Name;
+	rr:objectMap [ 
+		rml:reference "set-of-dataSources";
+	];
+];
+rr:predicateObjectMap [
+	rr:predicate dis:Set-DS-id;
+	rr:objectMap [ 
+		rml:reference "set-of-dataSources-id";
+	];
+].
